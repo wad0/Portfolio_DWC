@@ -1,24 +1,29 @@
-# README
+# Comic mania
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+漫画の感想投稿・検索サイト
 
-Things you may want to cover:
+### サイトテーマ
+<...>
 
-* Ruby version
+### テーマを選んだ理由
+<...>
 
-* System dependencies
+### ターゲットユーザ
+<...>
 
-* Configuration
+### 主な利用シーン
+<...>
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1piBlOFnRFzla-r0WRu8T_SHAxutpTIrHjPvJMj7jO8o/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
