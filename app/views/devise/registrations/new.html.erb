@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center">
-      <h2>アカウント作成</h2><br>
+    <div class="col-12 my-4 text-center">
+      <h2>アカウント作成</h2>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-group row">
-          <%= f.label :おなまえ ,class:"col-5" %>
+          <%= f.label :ニックネーム ,class:"col-5" %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"col-7" %>
         </div>
 
@@ -30,16 +30,13 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" ,placeholder: "６文字以上" , class:"col-7" %>
         </div>
 
-        <div class="col-12 text-center">
+        <div class="text-center my-4">
           <%= f.submit :はじめる, class:"btn btn-secondary" %>
         </div>
-        <br>
 
       <% end %>
 
-        <div class="col-12 text-center">
-          <%= render "devise/shared/links" %>
-        </div>
+      <%= render "devise/shared/links" %>
 
     </div>
 </div>
