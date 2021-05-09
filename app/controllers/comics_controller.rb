@@ -8,8 +8,9 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
+    @comic.user_id = current_user.id
     @comic.save
-    redirect_to comics_path
+    redirect_to comics_path, notice:"記録を保存しました"
   end
 
   def index
