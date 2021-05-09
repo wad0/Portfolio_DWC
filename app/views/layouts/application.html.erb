@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+    <title>Comic mania</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,7 +22,9 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
-    <p class="notice"><%= notice %></p>
+    <%= render 'layouts/flashes' %>
+    <!--<div class="top-img">-->
     <%= yield %>
+    <!--</div>-->
   </body>
 </html>

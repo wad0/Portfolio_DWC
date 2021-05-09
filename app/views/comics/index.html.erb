@@ -1,2 +1,41 @@
-<h1>Comics#index</h1>
-<p>Find me in app/views/comics/index.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <% @comics.each do |comic| %>
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 my-3">
+
+        <% if comic.complete == true %>
+          <div class="card border-secondary" >
+            <div class="card-header text-secondary">
+              <%= link_to "" ,comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
+              <div class="right">完結済み</div>
+            </div>
+            <div class="card-body text-dark">
+              <h5 class="card-title">『<%= comic.title %>』</h5>
+              <p class="card-text"><%= comic.memo %></p>
+            </div>
+            <div class="card-footer border-secondary">タグとか</div>
+          </div>
+
+        <% elsif comic.complete == false %>
+          <div class="card border-primary" >
+            <div class="card-header text-primary">
+              <%= link_to "" ,comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
+              <div class="right">未完結</div>
+            </div>
+            <div class="card-body text-dark">
+              <h5 class="card-title">『<%= comic.title %>』</h5>
+              <p class="card-text"><%= comic.memo %></p>
+            </div>
+            <div class="card-footer border-primary">タグとか</div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="col-12 text-center"><%= paginate @comics %></div>
+    <!--ページング機能-->
+
+  </div>
+</div>
+
