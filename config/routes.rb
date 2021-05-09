@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about' => 'homes#about'
   post 'homes/guest_sign_in' => 'homes#guest_sign_in'
+  get '/mypage' => 'users#show'
 
-  resources :users, only: [:show,:edit,:update]
+  resource :users, only: [:show,:edit,:update]
   resources :comics
 
 end
