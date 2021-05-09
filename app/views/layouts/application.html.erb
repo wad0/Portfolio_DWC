@@ -22,6 +22,15 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
+      <li>
+        <%= link_to "Mypage", mypage_path %>
+      </li>
+      <li>
+        <%= link_to "Comics", comics_path %>
+      </li>
+      <li>
+        <%= link_to "コミックスを記録する", new_comic_path, class:"btn btn-secondary" %>
+      </li>
     <%= render 'layouts/flashes' %>
     <!--<div class="top-img">-->
     <%= yield %>

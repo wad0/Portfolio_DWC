@@ -8,19 +8,33 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
-    @comic.save
-    redirect_to comics_path
+    @comic.user_id = current_user.id
+    if @comic.save
+      redirect_to comics_path, notice:"記録を保存しました"
+    else
+      render :new
+    end
   end
 
   def index
     @comics = Comic.all.page(params[:page]).per(8)
   end
 
-  def show
+  def edit
     @comic = Comic.find(params[:id])
   end
 
-  def edit
+  def update
+    if @comic.update(comic_params)
+      redirect_to comics_path, notice:"記録を更新しました"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @comic.destroy
+    redirect_to comics_path, notice:"記録を削除しました"
   end
 
   private

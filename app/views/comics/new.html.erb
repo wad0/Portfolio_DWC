@@ -11,18 +11,18 @@
       <%= form_with model:@comic, url:comics_path, method: :post, local:true do |f| %>
 
         <div class="form-group row">
-          <%= f.label :タイトル ,class:"col-5" %>
-          <%= f.text_field :title, class:"col-7" %>
+          <%= f.label :作品タイトル ,class:"col-4" %>
+          <%= f.text_field :title, class:"col-8" %>
         </div>
 
         <div class="form-group row">
-          <%= f.label :メモ ,class:"col-5" %>
-          <%= f.text_area :memo, class:"col-7" %>
+          <%= f.label :メモ ,class:"col-4" %>
+          <%= f.text_area :memo, class:"col-8" %>
         </div>
 
         <div class="form-group row">
           <%= f.label :完結 , class:"col-4" %>
-          <div class="col-3">
+          <div class="col-4">
           <%= f.radio_button :complete,true %>
           <%= f.label :complete, 'してる', value: true %>
           </div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="text-center my-4">
-          <%= f.submit :記録する, class:"btn btn-success" %>
+          <%= f.submit :記録する, class:"btn btn-secondary" %>
         </div>
 
       <% end %>
