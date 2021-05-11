@@ -17,7 +17,7 @@ class ComicsController < ApplicationController
   end
 
   def index
-    @comics = Comic.all.page(params[:page]).per(8)
+    @comics = Comic.all.page(params[:page]).per(8).order("updated_at DESC")
   end
 
   def edit
