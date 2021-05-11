@@ -14,6 +14,12 @@
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
+      <li>
+        <%= link_to "Mypage", user_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to "コミックスを記録する", new_comic_path, class:"btn btn-secondary" %>
+      </li>
     <% else %>
       <li>
         <%= link_to "アカウント作成", new_user_registration_path %>
@@ -23,13 +29,7 @@
       </li>
     <% end %>
       <li>
-        <%= link_to "Mypage", mypage_path %>
-      </li>
-      <li>
         <%= link_to "Comics", comics_path %>
-      </li>
-      <li>
-        <%= link_to "コミックスを記録する", new_comic_path, class:"btn btn-secondary" %>
       </li>
     <%= render 'layouts/flashes' %>
     <!--<div class="top-img">-->
