@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comics, dependent: :destroy
-
+  has_many :keeps, dependent: :destroy
+  has_many :keep_comics, through: :keeps, source: :comic
+  # keepsを経由してcomicから情報をとってくる
+  
 end

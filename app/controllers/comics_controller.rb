@@ -18,6 +18,7 @@ class ComicsController < ApplicationController
 
   def index
     @comics = Comic.all.page(params[:page]).per(8).order("updated_at DESC")
+    @keep = Keep.new
   end
 
   def edit
