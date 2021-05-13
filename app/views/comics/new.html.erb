@@ -19,7 +19,7 @@
               </div>
 
               <div class="form-group row">
-                  <%= f.label :完結は？ , class:"col-5" %>
+                  <%= f.label :完結 , class:"col-5" %>
                 <div class="col-3">
                   <%= f.radio_button :complete,true %>
                   <%= f.label :complete, 'してる', value: true %>
@@ -29,6 +29,22 @@
                   <%= f.label :complete, 'してない', value: false %>
                 </div>
               </div>
+              
+              <!--評価機能-->
+              <div class="form-group row" id="star">
+                <%= f.label :evaluation,'お気に入り度' ,class:"col-5" %>
+                <%= f.hidden_field :evaluation, id: :review_star %>
+              </div>
+              <script>
+              $('#star').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'comic[evaluation]',
+                half: true,
+              });
+              </script>
+              <!--/評価機能-->
 
               <div class="text-center my-4">
                 <%= f.submit :記録する, class:"btn btn-secondary" %>

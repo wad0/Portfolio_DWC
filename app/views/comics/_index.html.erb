@@ -9,8 +9,32 @@
             </div>
             <div class="card-body text-dark">
               <h5 class="card-title">『<%= comic.title %>』</h5>
-              <p class="card-text"><%= simple_format(comic.memo) %></p>
+              <p class="card-text"><%= safe_join(comic.memo.split("\n"), tag(:br)) %></p>
             </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+              <!--評価機能表示-->
+                <span id="star-<%= comic.id %>"></span>
+              </li>
+                <script>
+                $('#star-<%= comic.id %>').raty({
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'comic[evaluation]',
+                  half: true,
+                  readOnly: true,
+                  score: <%= comic.evaluation %>,
+                });
+                </script>
+              <!--/評価機能表示-->
+
+              <li class="list-group-item">
+                タグとか
+              </li>
+            </ul>
+
             <div class="card-footer border-secondary">
               <div class="left"><%= comic.updated_at.strftime('%Y/%m/%d') %></div>
               <% if comic.user == current_user %>
@@ -33,8 +57,32 @@
             </div>
             <div class="card-body text-dark">
               <h5 class="card-title">『<%= comic.title %>』</h5>
-              <p class="card-text"><%= simple_format(comic.memo) %></p>
+              <p class="card-text"><%= safe_join(comic.memo.split("\n"), tag(:br)) %></p>
             </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+              <!--評価機能表示-->
+                <span id="star-<%= comic.id %>"></span>
+              </li>
+                <script>
+                $('#star-<%= comic.id %>').raty({
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'comic[evaluation]',
+                  half: true,
+                  readOnly: true,
+                  score: <%= comic.evaluation %>,
+                });
+                </script>
+              <!--/評価機能表示-->
+
+              <li class="list-group-item">
+                タグとか
+              </li>
+            </ul>
+
             <div class="card-footer border-primary">
               <div class="left"><%= comic.updated_at.strftime('%Y/%m/%d') %></div>
               <% if comic.user == current_user %>

@@ -29,6 +29,23 @@
                   <%= f.label :complete, 'してない', value: false %>
                 </div>
               </div>
+              
+              <!--評価編集機能-->
+              <div class="form-group row">
+                <%= f.label :evaluation,'お気に入り度' ,class:"col-5" %>
+                <div id="star-<%= @comic.id %>"></div>
+              </div>
+              <script>
+              $('#star-<%= @comic.id %>').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                scoreName: 'comic[evaluation]',
+                score: <%= @comic.evaluation %>,
+              });
+              </script>
+              <!--/評価編集機能-->
 
               <div class="text-center my-4">
                 <%= f.submit :更新する, class:"btn btn-secondary" %>
