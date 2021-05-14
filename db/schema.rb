@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_185330) do
+ActiveRecord::Schema.define(version: 2021_05_13_104417) do
 
   create_table "comics", force: :cascade do |t|
     t.integer "user_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2021_05_07_185330) do
     t.text "memo"
     t.boolean "complete", default: true
     t.float "evaluation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "keeps", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "comic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

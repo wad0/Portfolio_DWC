@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:update,:destroy]
+  before_action :ensure_correct_user, only: [:update,:destroy,:keeps]
 
   def show
     @user = User.find(params[:id])
@@ -24,6 +24,11 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to user_session
+  end
+
+  def keeps
+    # @comics = User.find(params[:user_id]).comics
+    @keep_comics = User.find(params[:id]).keep_comics.page(params[:page]).per(8)
   end
 
   private
