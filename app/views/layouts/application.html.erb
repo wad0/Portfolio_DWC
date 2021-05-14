@@ -15,7 +15,10 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
       <li>
-        <%= link_to "Mypage", user_path(current_user.id) %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to "読みたいリスト", keeps_user_path(current_user.id) %>
       </li>
       <li>
         <%= link_to "コミックスを記録する", new_comic_path, class:"btn btn-secondary" %>

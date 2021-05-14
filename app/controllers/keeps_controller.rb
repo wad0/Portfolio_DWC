@@ -11,9 +11,5 @@ class KeepsController < ApplicationController
     @keep.destroy
     redirect_to comics_path, notice:"読みたいリストから削除しました"
   end
-  
-  def index
-    
-  end
 
 end
