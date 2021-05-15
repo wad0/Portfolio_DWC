@@ -73,7 +73,6 @@ gem 'bootstrap', '~> 4.5'
 gem 'devise-bootstrap-views'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
-gem 'pry-byebug'
 
 gem 'dotenv-rails'
 group :production do
