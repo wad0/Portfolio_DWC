@@ -22,27 +22,27 @@
 
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "マイページ", user_path(current_user.id) %>
+                <%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "読みたいリスト", keeps_user_path(current_user.id) %>
+                <%= link_to "読みたいリスト", keeps_user_path(current_user.id), class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "コミックスを記録する", new_comic_path, class:"btn btn-secondary" %>
+                <%= link_to "コミックスを記録する", new_comic_path, class:"nav-link" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "アカウント作成", new_user_registration_path %>
+                <%= link_to "アカウント作成", new_user_registration_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path %>
+                <%= link_to "ログイン", new_user_session_path, class:"nav-link" %>
               </li>
             <% end %>
               <li class="nav-item">
-                <%= link_to "Comics", comics_path %>
+                <%= link_to "Comics", comics_path, class:"nav-link" %>
               </li>
             </ul>
 
