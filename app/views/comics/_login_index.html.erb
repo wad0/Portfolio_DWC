@@ -4,7 +4,12 @@
         <% if comic.complete == true %>
           <div class="card border-secondary" >
             <div class="card-header text-secondary">
-              <div class="right">完結済み</div>
+              <% if comic.user == current_user %>
+                <%= link_to "" ,edit_comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
+              <% else %>
+                <%= render 'keeps/keep_btn' , comic: comic %>
+              <% end %>
+                <div class="right">完結済み</div>
             </div>
             <div class="card-body text-dark">
               <h5 class="card-title">『<%= comic.title %>』</h5>
@@ -51,6 +56,11 @@
         <% elsif comic.complete == false %>
           <div class="card border-primary" >
             <div class="card-header text-primary">
+              <% if comic.user == current_user %>
+                <%= link_to "" ,edit_comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
+              <% else %>
+                <%= render 'keeps/keep_btn' , comic: comic %>
+              <% end %>
               <div class="right">未完結</div>
             </div>
             <div class="card-body text-dark">

@@ -1,8 +1,12 @@
 <div class="container">
-  <h2 class="text-center my-4">All Comics</h2>
+  <h1 class="text-center my-5">All Comics</h1>
   <div class="row">
 
-    <%= render 'index', comics: @comics %>
+    <% if user_signed_in? %>
+      <%= render 'login_index' , comics: @comics %>
+    <% else %>
+      <%= render 'index' , comics: @comics %>
+    <% end %>
 
     <div class="col-12 text-center"><%= paginate @comics %></div>
     <!--ページング機能-->
