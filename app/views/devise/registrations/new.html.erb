@@ -1,10 +1,10 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row my-5">
     <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
       <div class="card bg-light">
         <div class="card-body text-center">
-          <h2 class="card-title mt-2 mb-5">アカウント作成</h2>
+          <h3 class="card-title mt-2 mb-5">アカウント作成</h3>
           <p class="card-text">
             <%= form_with model:@user, url:user_registration_path, method: :post, local:true do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>

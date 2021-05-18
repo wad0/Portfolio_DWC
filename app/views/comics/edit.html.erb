@@ -1,10 +1,10 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row my-5">
     <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
       <div class="card bg-light">
         <div class="card-body text-center">
-          <h2 class="card-title mt-2 mb-5">コミックス編集</h2>
+          <h3 class="card-title mt-2 mb-5">コミックス編集</h3>
           <p class="card-text">
             <%= form_with model:@comic, url:comic_path(@comic.id), method: :patch, local:true do |f| %>
 
@@ -19,7 +19,7 @@
               </div>
 
               <div class="form-group row">
-                  <%= f.label :完結は？ , class:"col-5" %>
+                  <%= f.label :完結 , class:"col-5" %>
                 <div class="col-3">
                   <%= f.radio_button :complete,true %>
                   <%= f.label :complete, 'してる', value: true %>
@@ -29,7 +29,7 @@
                   <%= f.label :complete, 'してない', value: false %>
                 </div>
               </div>
-              
+
               <!--評価編集機能-->
               <div class="form-group row">
                 <%= f.label :evaluation,'お気に入り度' ,class:"col-5" %>
