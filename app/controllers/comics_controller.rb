@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:create,:edit, :update, :destroy]
 
   def new
     @comic = Comic.new
@@ -10,7 +10,7 @@ class ComicsController < ApplicationController
     @comic = Comic.new(comic_params)
     @comic.user_id = current_user.id
     if @comic.save
-      redirect_to comics_path, notice:"記録を保存しました"
+      redirect_to user_path(current_user.id), notice:"記録を保存しました"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ComicsController < ApplicationController
 
   def update
     if @comic.update(comic_params)
-      redirect_to comics_path, notice:"記録を更新しました"
+      redirect_to user_path(current_user.id), notice:"記録を更新しました"
     else
       render :edit
     end
