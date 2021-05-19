@@ -23,16 +23,12 @@
  }
 
 .top-img {
-  background-image: image-url('bg_img.png');
+  background-image: image-url('top.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color:rgba(255,255,255,0.8);
   background-blend-mode:lighten;
-}
-
-.card-body{
-  padding: 0 20px 20px;
 }
 
 .pagination {
