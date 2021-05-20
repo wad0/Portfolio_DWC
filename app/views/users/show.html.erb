@@ -38,16 +38,14 @@
     <h1 class="text-center my-5 text-monospace"><%= @user.name %>’s Comics</h1>
   <% end %>
 
-    <div class="row">
       <% if user_signed_in? %>
-        <%= render 'comics/login_index', comics: @comics %>
+        <%= render 'comics/login_index', comics: @comics, tags: @tags, all_tags: @all_tags %>
       <% else %>
-        <%= render 'comics/index', comics: @comics %>
+        <%= render 'comics/index', comics: @comics, tags: @tags, all_tags: @all_tags %>
       <% end %>
 
       <div class="col-12 text-center"><%= paginate @comics %></div>
       <!--ページング機能-->
-    </div>
 
 </div>
 

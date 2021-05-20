@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @comics = @user.comics.page(params[:page]).per(8).order("updated_at DESC")
+    @all_tags = ActsAsTaggableOn::Tag.all
+    @tags = @comics.tag_counts_on(:tags)
   end
 
   def edit
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
   def keeps
     # @comics = User.find(params[:user_id]).comics
     @keep_comics = User.find(params[:id]).keep_comics.page(params[:page]).per(8)
+    @all_tags = ActsAsTaggableOn::Tag.all
+    @tags = @keep_comics.tag_counts_on(:tags)
   end
 
   private

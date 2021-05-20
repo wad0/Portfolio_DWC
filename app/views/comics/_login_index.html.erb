@@ -1,3 +1,13 @@
+
+  <div class="row mb-4">
+    <div class="col mx-auto">
+        <% all_tags.each do |tag| %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class:"btn btn-outline-dark m-1" %>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="row">
     <% comics.each do |comic| %>
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 my-3">
 
@@ -35,6 +45,9 @@
               <!--/評価機能表示-->
 
               <li class="list-group-item">
+               <% tags.each do |tag| %>
+                  <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
+               <% end %>
                 タグとか
               </li>
             </ul>
@@ -87,6 +100,9 @@
               <!--/評価機能表示-->
 
               <li class="list-group-item">
+               <% tags.each do |tag| %>
+                  <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
+               <% end %>
                 タグとか
               </li>
             </ul>
@@ -108,3 +124,4 @@
 
     </div>
     <% end %>
+  </div>

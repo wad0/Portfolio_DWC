@@ -7,4 +7,9 @@ class Comic < ApplicationRecord
     keeps.where(user_id: user.id).exists?
   end
 
+  validates :title, presence: true
+  validates :evaluation, presence: true
+
+  acts_as_taggable
+
 end
