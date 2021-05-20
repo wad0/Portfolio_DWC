@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_many :keeps, dependent: :destroy
   has_many :keep_comics, through: :keeps, source: :comic
   # keepsを経由してcomicから情報をとってくる
-  
+
+  validates :name, presence: true
+
 end

@@ -46,6 +46,15 @@
               </script>
               <!--/評価機能-->
 
+              <!--タグ機能-->
+              <div class="form-group row">
+                <% @all_tags.each do |tag| %>
+                  <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+                  <%= f.label "#{tag.name}(#{tag.taggings_count})" %>
+                <% end %>
+              </div>
+              <!--/タグ機能-->
+
               <div class="text-center my-4">
                 <%= f.submit :記録する, class:"btn btn-secondary" %>
               </div>
