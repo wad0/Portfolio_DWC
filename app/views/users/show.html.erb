@@ -39,9 +39,9 @@
   <% end %>
 
       <% if user_signed_in? %>
-        <%= render 'comics/login_index', comics: @comics, tags: @tags, all_tags: @all_tags %>
+        <%= render 'comics/login_index', comics: @comics, all_tags: @all_tags %>
       <% else %>
-        <%= render 'comics/index', comics: @comics, tags: @tags, all_tags: @all_tags %>
+        <%= render 'comics/index', comics: @comics, all_tags: @all_tags %>
       <% end %>
 
       <div class="col-12 text-center"><%= paginate @comics %></div>

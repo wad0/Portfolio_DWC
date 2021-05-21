@@ -2,7 +2,7 @@
   <div class="row mb-4">
     <div class="col mx-auto">
         <% all_tags.each do |tag| %>
-          <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class:"btn btn-outline-dark m-1" %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag: tag.name), class:"btn btn-outline-dark m-1" %>
         <% end %>
     </div>
   </div>
@@ -27,8 +27,8 @@
             </div>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
               <!--評価機能表示-->
+              <li class="list-group-item">
                 <span id="star-<%= comic.id %>"></span>
               </li>
                 <script>
@@ -44,12 +44,14 @@
                 </script>
               <!--/評価機能表示-->
 
+              <!--タグ機能表示-->
               <li class="list-group-item">
-               <% tags.each do |tag| %>
+               <% comic.tags.each do |tag| %>
                   <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
                <% end %>
                 タグとか
               </li>
+              <!--/タグ機能表示-->
             </ul>
 
             <div class="card-footer border-secondary">
@@ -99,12 +101,15 @@
                 </script>
               <!--/評価機能表示-->
 
+              <!--タグ機能表示-->
               <li class="list-group-item">
-               <% tags.each do |tag| %>
+               <% comic.tags.each do |tag| %>
                   <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
                <% end %>
                 タグとか
               </li>
+              <!--/タグ機能表示-->
+
             </ul>
 
             <div class="card-footer border-primary">
