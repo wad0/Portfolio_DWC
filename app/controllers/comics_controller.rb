@@ -21,9 +21,8 @@ class ComicsController < ApplicationController
   def index
     @keep = Keep.new
     @all_tags = ActsAsTaggableOn::Tag.all
-    @tags = Comic.tag_counts_on(:tags)
     if params[:tag]
-      @comics = Comic.tagged_with(params[:tag])
+      @comics = Comic.tagged_with(params[:tag]).page(params[:page]).per(8).order("updated_at DESC")
     else
       @comics = Comic.all.page(params[:page]).per(8).order("updated_at DESC")
     end

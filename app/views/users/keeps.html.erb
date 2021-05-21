@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="text-center my-5 text-monospace">Keep Comics</h1>
 
-    <%= render 'comics/login_index', comics: @keep_comics, tags: @tags, all_tags: @all_tags %>
+    <%= render 'comics/login_index', comics: @keep_comics, all_tags: @all_tags %>
 
     <div class="col-12 text-center"><%= paginate @keep_comics %></div>
     <!--ページング機能-->
