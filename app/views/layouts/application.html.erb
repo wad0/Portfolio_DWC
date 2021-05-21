@@ -55,7 +55,9 @@
         <div class="col right m-2">
           <%= form_with url:search_comics_path, method: :get, local:true do |f| %>
           <%= f.search_field :search, placeholder: "タイトル検索" %>
-          <%= f.submit "検索", class:"btn btn-secondary btn-sm" %>
+          <%= button_tag type:'submit', class:"btn btn-secondary" do %>
+          <i class="fas fa-search"></i>
+          <% end %>
           <% end %>
         </div>
       </div>
