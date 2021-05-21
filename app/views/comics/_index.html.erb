@@ -1,8 +1,8 @@
 
   <div class="row mb-4">
-    <div class="col mx-auto">
+    <div class="col mx-auto text-center">
         <% all_tags.each do |tag| %>
-          <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag: tag.name), class:"btn btn-outline-dark m-1" %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag: tag.name), class:"btn btn-outline-secondary m-1" %>
         <% end %>
     </div>
   </div>
@@ -42,9 +42,8 @@
               <!--タグ機能表示-->
               <li class="list-group-item">
                <% comic.tags.each do |tag| %>
-                  <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
+                  <%= link_to "#{tag.name}", comics_path(tag), class:"btn btn-secondary btn-sm mb-1" %>
                <% end %>
-                タグとか
               </li>
               <!--/タグ機能表示-->
             </ul>
@@ -56,7 +55,7 @@
               <% else %>
                 <%= link_to user_path(comic.user_id) do %>
                   <div class="text-right">
-                    <button type="button" class="btn btn-outline-dark"><%= comic.user.name %></button>
+                    <button type="button" class="btn btn-outline-secondary"><%= comic.user.name %></button>
                   </div>
                 <% end %>
               <% end %>
@@ -94,9 +93,8 @@
               <!--タグ機能表示-->
               <li class="list-group-item">
                <% comic.tags.each do |tag| %>
-                  <%= link_to "#{tag.name}(#{tag.taggings_count})", comics_path(tag), class: "label label-default" %>
+                  <%= link_to "#{tag.name}", comics_path(tag), class:"btn btn-secondary btn-sm mb-1" %>
                <% end %>
-                タグとか
               </li>
               <!--/タグ機能表示-->
 
@@ -109,7 +107,7 @@
               <% else %>
                 <%= link_to user_path(comic.user_id) do %>
                   <div class="text-right">
-                    <button type="button" class="btn btn-outline-dark"><%= comic.user.name %></button>
+                    <button type="button" class="btn btn-outline-secondary"><%= comic.user.name %></button>
                   </div>
                 <% end %>
               <% end %>

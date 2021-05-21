@@ -1,26 +1,26 @@
 <div class="container">
 
   <div class="row my-5">
-    <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 px-5 px-sm-0 mx-auto">
       <div class="card bg-light">
-        <div class="card-body text-center">
-          <h2 class="card-title mt-2 mb-5 text-monospace">New comic</h2>
+        <div class="card-body">
+          <h1 class="card-title mt-2 mb-5 text-monospace text-center">New comic</h1>
           <p class="card-text">
             <%= form_with model:@comic, url:comics_path, method: :post, local:true do |f| %>
 
               <div class="form-group row">
-                <%= f.label :作品タイトル ,class:"col-5" %>
-                <%= f.text_field :title, class:"col-6" %>
+                <%= f.label :作品タイトル ,class:"col-4 right" %>
+                <%= f.text_field :title, class:"col-6 offset-1" %>
               </div>
 
               <div class="form-group row">
-                <%= f.label :メモ ,class:"col-5" %>
-                <%= f.text_area :memo, class:"col-6" %>
+                <%= f.label :メモ ,class:"col-4 right" %>
+                <%= f.text_area :memo, class:"col-6 offset-1" %>
               </div>
 
               <div class="form-group row">
-                  <%= f.label :完結 , class:"col-5" %>
-                <div class="col-3">
+                  <%= f.label :完結 , class:"col-4 right" %>
+                <div class="col-3 offset-1">
                   <%= f.radio_button :complete,true %>
                   <%= f.label :complete, 'してる', value: true %>
                 </div>
@@ -32,7 +32,8 @@
 
               <!--評価機能-->
               <div class="form-group row" id="star">
-                <%= f.label :evaluation,'お気に入り度' ,class:"col-5" %>
+                <%= f.label :evaluation,'お気に入り度' ,class:"col-4 right" %>
+              <div class="col-1"></div>
                 <%= f.hidden_field :evaluation, id: :review_star %>
               </div>
               <script>
@@ -48,15 +49,21 @@
 
               <!--タグ機能-->
               <div class="form-group row">
+                <div class="col-10 mx-auto">
                 <% @all_tags.each do |tag| %>
-                  <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
-                  <%= f.label "#{tag.name}(#{tag.taggings_count})" %>
+                  <div class="form-check form-check-inline">
+                    <div class="form-check-input" >
+                      <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+                    </div>
+                      <%= f.label "#{tag.name}", class:"badge badge-secondary form-check-label" %>
+                  </div>
                 <% end %>
+                </div>
               </div>
               <!--/タグ機能-->
 
               <div class="text-center my-4">
-                <%= f.submit :投稿する, class:"btn btn-secondary" %>
+                <%= f.submit :投稿する, class:"btn btn-primary" %>
               </div>
 
             <% end %>

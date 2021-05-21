@@ -4,7 +4,7 @@ class ComicsController < ApplicationController
 
   def new
     @comic = Comic.new
-    @all_tags = ActsAsTaggableOn::Tag.all
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
   end
 
   def create
@@ -13,14 +13,14 @@ class ComicsController < ApplicationController
     if @comic.save
       redirect_to user_path(current_user.id), notice:"記録を保存しました"
     else
-      @all_tags = ActsAsTaggableOn::Tag.all
+      @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
       render :new
     end
   end
 
   def index
     @keep = Keep.new
-    @all_tags = ActsAsTaggableOn::Tag.all
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
     if params[:tag]
       @comics = Comic.tagged_with(params[:tag]).page(params[:page]).per(8).order("updated_at DESC")
     else
@@ -28,9 +28,14 @@ class ComicsController < ApplicationController
     end
   end
 
+  def search
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
+    @comics = Comic.search(params[:search]).page(params[:page]).per(8).order("updated_at DESC")
+  end
+
   def edit
     @comic = Comic.find(params[:id])
-    @all_tags = ActsAsTaggableOn::Tag.all
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
   end
 
   def update

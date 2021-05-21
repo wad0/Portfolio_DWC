@@ -1,9 +1,5 @@
 <div class="container">
-  <% if params[:tag] %>
-    <h1 class="text-center my-5 text-monospace">Comics</h1>
-  <% else %>
-    <h1 class="text-center my-5 text-monospace">All Comics</h1>
-  <% end %>
+  <h1 class="text-center my-5 text-monospace">Search for 『<%= params[:search] %>』</h1>
 
       <% if user_signed_in? %>
         <%= render 'login_index' , comics: @comics, all_tags: @all_tags %>
@@ -15,4 +11,3 @@
       <!--ページング機能-->
 
 </div>
-
