@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resource :keeps, only: [:create,:destroy]
       collection do
       get 'search'
+      get 'sort'
     end
   end
 

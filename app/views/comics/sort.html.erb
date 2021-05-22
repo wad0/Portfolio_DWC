@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="text-center my-5 text-monospace">All Comics</h1>
+
+      <% if user_signed_in? %>
+        <%= render 'login_index' , comics: @comics, all_tags: @all_tags %>
+      <% else %>
+        <%= render 'index' , comics: @comics, all_tags: @all_tags %>
+      <% end %>
+
+      <div class="col-12 text-center"><%= paginate @comics %></div>
+      <!--ページング機能-->
+
+</div>

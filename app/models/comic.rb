@@ -15,6 +15,19 @@ class Comic < ApplicationRecord
     end
   end
 
+  def self.sort(sort)
+    case sort
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'rate'
+      return all.order(evaluation: :DESC)
+    when 'lowrate'
+      return all.order(evaluation: :ASC)
+    end
+  end
+
   validates :title, presence: true
   validates :evaluation, presence: true
 

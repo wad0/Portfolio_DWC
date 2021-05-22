@@ -28,11 +28,6 @@ class ComicsController < ApplicationController
     end
   end
 
-  def search
-    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
-    @comics = Comic.search(params[:search]).page(params[:page]).per(8).order("updated_at DESC")
-  end
-
   def edit
     @comic = Comic.find(params[:id])
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
@@ -50,6 +45,17 @@ class ComicsController < ApplicationController
     @comic.destroy
     redirect_to comics_path, notice:"記録を削除しました"
   end
+
+  def search
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
+    @comics = Comic.search(params[:search]).page(params[:page]).per(8).order("updated_at DESC")
+  end
+
+  def sort
+    @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
+    @comics = Comic.sort(params[:sort]).page(params[:page]).per(8)
+  end
+
 
   private
 
