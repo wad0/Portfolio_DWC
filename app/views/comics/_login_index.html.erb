@@ -17,7 +17,11 @@
               <% if comic.user == current_user %>
                 <%= link_to "" ,edit_comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
               <% else %>
-                <%= render 'keeps/keep_btn' , comic: comic %>
+              <!--読みたいボタン  -->
+                <div id="keep_<%= comic.id %>">
+                  <%= render 'keeps/keep_btn' , comic: comic %>
+                </div>
+              <!--/読みたいボタン  -->
               <% end %>
                 <div class="right">完結済み</div>
             </div>
@@ -73,7 +77,11 @@
               <% if comic.user == current_user %>
                 <%= link_to "" ,edit_comic_path(comic.id),class:"text-decoration-none text-dark fas fa-pen-nib fa-lg left" %>
               <% else %>
-                <%= render 'keeps/keep_btn' , comic: comic %>
+              <!--読みたいボタン  -->
+                <div id="keep_<%= comic.id %>">
+                  <%= render 'keeps/keep_btn' , comic: comic %>
+                </div>
+              <!--/読みたいボタン  -->
               <% end %>
               <div class="right">未完結</div>
             </div>

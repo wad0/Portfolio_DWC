@@ -1,5 +1,5 @@
 <% if comic.kept_by?(current_user) %>
-  <%= link_to "" ,comic_keeps_path(comic.id),method: :delete,class:"text-decoration-none text-dark fas fa-bookmark fa-lg left" %>
+  <%= link_to "" ,comic_keeps_path(comic.id), method: :delete, remote:true, class:"text-decoration-none text-dark fas fa-bookmark fa-lg left" %>
 <% else %>
-  <%= link_to "" ,comic_keeps_path(comic.id),method: :post,class:"text-decoration-none text-dark far fa-bookmark fa-lg left" %>
+  <%= link_to "" ,comic_keeps_path(comic.id), method: :post, remote:true, class:"text-decoration-none text-dark far fa-bookmark fa-lg left" %>
 <% end %>
