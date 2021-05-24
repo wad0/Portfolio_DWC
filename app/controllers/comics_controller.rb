@@ -11,7 +11,7 @@ class ComicsController < ApplicationController
     @comic = Comic.new(comic_params)
     @comic.user_id = current_user.id
     if @comic.save
-      redirect_to user_path(current_user.id), notice:"記録を保存しました"
+      redirect_to comics_path, notice:"投稿を保存しました"
     else
       @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
       render :new
@@ -35,15 +35,16 @@ class ComicsController < ApplicationController
 
   def update
     if @comic.update(comic_params)
-      redirect_to user_path(current_user.id), notice:"記録を更新しました"
+      redirect_to comics_path, notice:"投稿を更新しました"
     else
+      @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
       render :edit
     end
   end
 
   def destroy
     @comic.destroy
-    redirect_to comics_path, notice:"記録を削除しました"
+    redirect_to comics_path, notice:"投稿を削除しました"
   end
 
   def search
