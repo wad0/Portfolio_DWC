@@ -2,7 +2,7 @@
 
   <div class="row my-5">
     <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 px-5 px-sm-0 mx-auto">
-      <div class="card bg-light">
+      <div class="card bg-light shadow">
         <div class="card-body">
           <h1 class="card-title mt-2 mb-5 text-monospace text-center">Edit comic</h1>
           <p class="card-text">
@@ -42,6 +42,7 @@
                 starOn : '<%= asset_path('star-on.png') %>',
                 starHalf: '<%= asset_path('star-half.png') %>',
                 scoreName: 'comic[evaluation]',
+                score: <%= @comic.evaluation %>,
                 half: true,
               });
               </script>

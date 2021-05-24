@@ -3,8 +3,9 @@
   <% if @user == current_user %>
       <div class="row my-5">
         <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
-          <div class="card bg-light mb-4">
+          <div class="card bg-light mb-4 shadow">
             <div class="card-body text-center">
+
               <h2 class="card-title mt-2 mb-5 text-monospace">Profile</h2>
               <p class="card-text">
 
@@ -33,9 +34,27 @@
         </div>
       </div>
 
-    <h1 class="text-center mb-5 mt-4 text-monospace">My Comics</h1>
+    <div class="row my-5"></div>
+
+    <div class="row my-5">
+      <div class="w-auto mx-auto">
+        <div class="card bg-light shadow">
+          <div class="card-body">
+            <h1 class="card-text text-monospace text-center">My comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
   <% else %>
-    <h1 class="text-center my-5 text-monospace"><%= @user.name %>’s Comics</h1>
+    <div class="row my-5">
+      <div class="w-auto mx-auto">
+        <div class="card bg-light shadow">
+          <div class="card-body">
+            <h1 class="card-text text-monospace text-center"><%= @user.name %>’s comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 
       <% if user_signed_in? %>

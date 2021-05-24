@@ -14,13 +14,14 @@
  *= require_self
  */
 
- .left{
-   float: left;
- }
 
- .right{
+.left{
+   float: left;
+}
+
+.right{
    text-align: right;
- }
+}
 
 .top-img {
   background-image: image-url('top.png');
@@ -38,6 +39,12 @@
 .pagination>li>a {
   color: #696969;
 }
+
+body {
+  // padding-bottom: 80px;
+  padding-top: 76px;
+}
+
 
 @import "bootstrap";
 @import 'font-awesome-sprockets';

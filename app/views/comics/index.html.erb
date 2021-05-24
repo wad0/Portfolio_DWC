@@ -1,8 +1,24 @@
 <div class="container">
   <% if params[:tag] %>
-    <h1 class="text-center my-5 text-monospace">Comics</h1>
+    <div class="row my-5">
+      <div class="w-auto mx-auto">
+        <div class="card bg-light shadow">
+          <div class="card-body">
+            <h1 class="card-text text-monospace text-center">Comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
   <% else %>
-    <h1 class="text-center my-5 text-monospace">All Comics</h1>
+    <div class="row my-5">
+      <div class="w-auto mx-auto">
+        <div class="card bg-light shadow">
+          <div class="card-body">
+            <h1 class="card-text text-monospace text-center">All comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 
       <% if user_signed_in? %>
