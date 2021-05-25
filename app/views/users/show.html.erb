@@ -40,7 +40,7 @@
       <div class="w-auto mx-auto">
         <div class="card bg-light shadow">
           <div class="card-body">
-            <h1 class="card-text text-monospace text-center">My comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+            <h1 class="card-text text-monospace text-center">My comics <small class="text-muted">-<%= @user.comics.count %>-</small></h1>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="w-auto mx-auto">
         <div class="card bg-light shadow">
           <div class="card-body">
-            <h1 class="card-text text-monospace text-center"><%= @user.name %>’s comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+            <h1 class="card-text text-monospace text-center"><%= @user.name %>’s comics <small class="text-muted">-<%= @user.comics.count %>-</small></h1>
           </div>
         </div>
       </div>
