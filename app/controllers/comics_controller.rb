@@ -22,9 +22,9 @@ class ComicsController < ApplicationController
     @keep = Keep.new
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
     if params[:tag]
-      @comics = Comic.tagged_with(params[:tag]).page(params[:page]).per(8).order("updated_at DESC")
+      @comics = Comic.tagged_with(params[:tag]).page(params[:page]).order("updated_at DESC")
     else
-      @comics = Comic.all.page(params[:page]).per(8).order("updated_at DESC")
+      @comics = Comic.all.page(params[:page]).order("updated_at DESC")
     end
   end
 
@@ -49,12 +49,12 @@ class ComicsController < ApplicationController
 
   def search
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
-    @comics = Comic.search(params[:search]).page(params[:page]).per(8).order("updated_at DESC")
+    @comics = Comic.search(params[:search]).page(params[:page]).order("updated_at DESC")
   end
 
   def sort
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
-    @comics = Comic.sort(params[:sort]).page(params[:page]).per(8)
+    @comics = Comic.sort(params[:sort]).page(params[:page])
   end
 
 

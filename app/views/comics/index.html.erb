@@ -4,7 +4,7 @@
       <div class="w-auto mx-auto">
         <div class="card bg-light shadow">
           <div class="card-body">
-            <h1 class="card-text text-monospace text-center">Comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+            <h1 class="card-text text-monospace text-center">Comics <small class="text-muted">-<%= Comic.tagged_with(params[:tag]).count %>-</small></h1>
           </div>
         </div>
       </div>
@@ -14,7 +14,7 @@
       <div class="w-auto mx-auto">
         <div class="card bg-light shadow">
           <div class="card-body">
-            <h1 class="card-text text-monospace text-center">All comics <small class="text-muted">-<%= @comics.count %>-</small></h1>
+            <h1 class="card-text text-monospace text-center">All comics <small class="text-muted">-<%= Comic.all.count %>-</small></h1>
           </div>
         </div>
       </div>

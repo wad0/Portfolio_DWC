@@ -3,7 +3,7 @@
     <div class="w-auto mx-auto">
       <div class="card bg-light shadow">
         <div class="card-body">
-          <h1 class="card-text text-monospace text-center">Keep comics <small class="text-muted">-<%= @keep_comics.count %>-</small></h1>
+          <h1 class="card-text text-monospace text-center">Keep comics <small class="text-muted">-<%= User.find(params[:id]).keep_comics.count %>-</small></h1>
         </div>
       </div>
     </div>

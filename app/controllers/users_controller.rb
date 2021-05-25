@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @comics = @user.comics.page(params[:page]).per(8).order("updated_at DESC")
+    @comics = @user.comics.page(params[:page]).order("updated_at DESC")
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
     @tags = @comics.tag_counts_on(:tags)
   end
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice:"ユーザ情報を更新しました"
     else
-      @comics = @user.comics.page(params[:page]).per(8)
+      @comics = @user.comics.page(params[:page])
       render :show
     end
   end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def keeps
-    @keep_comics = User.find(params[:id]).keep_comics.page(params[:page]).per(8)
+    @keep_comics = User.find(params[:id]).keep_comics.page(params[:page])
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
     @tags = @keep_comics.tag_counts_on(:tags)
   end
