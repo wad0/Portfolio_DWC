@@ -6,6 +6,8 @@
         <div class="card-body">
           <h1 class="card-title mt-2 mb-5 text-monospace text-center">New comic</h1>
           <p class="card-text">
+
+            <%= render "layouts/error_messages", model: @comic  %>
             <%= form_with model:@comic, url:comics_path, method: :post, local:true do |f| %>
 
               <div class="form-group row">
