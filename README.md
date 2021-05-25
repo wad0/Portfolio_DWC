@@ -19,10 +19,10 @@
 - 自分のお気に入りの漫画を読み返そうと思ったとき
 - 人のおすすめの漫画を知りたいとき
 
-##設計書
-[ER図](https://drive.google.com/file/d/10A_JtREKtVmDLf1ZMa8gWxNgnTUVHdCB/view?usp=sharing)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/1p3w3LXCArEEwpBriCYAuWaNfwPsLo5Jqis3w-bO3TCY/edit?usp=sharing)
-[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1lyJClTYDOohnEWhH7hti_erroUq0U5pzdvkaaNnFoos/edit?usp=sharing)
+## 設計書
+[ER図](https://drive.google.com/file/d/10A_JtREKtVmDLf1ZMa8gWxNgnTUVHdCB/view?usp=sharing)  
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1p3w3LXCArEEwpBriCYAuWaNfwPsLo5Jqis3w-bO3TCY/edit?usp=sharing)  
+[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1lyJClTYDOohnEWhH7hti_erroUq0U5pzdvkaaNnFoos/edit?usp=sharing)  
 [DesignEvo](https://www.designevo.com/jp/)
 
 ## 機能一覧
