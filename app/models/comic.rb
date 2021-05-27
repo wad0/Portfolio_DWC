@@ -25,9 +25,9 @@ class Comic < ApplicationRecord
     when 'lowrate'
       all.order(evaluation: :ASC)
     when 'complete'
-      Comic.where(complete: true)
+      Comic.where(complete: true).order('updated_at DESC')
     when 'still'
-      Comic.where(complete: false)
+      Comic.where(complete: false).order('updated_at DESC')
     end
   end
 
