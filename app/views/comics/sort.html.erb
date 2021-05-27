@@ -1,5 +1,13 @@
 <div class="container">
-  <h1 class="text-center my-5 text-monospace">All Comics</h1>
+  <div class="row my-5">
+    <div class="w-auto mx-auto">
+      <div class="card bg-light shadow">
+        <div class="card-body">
+          <h1 class="card-text text-monospace text-center">Comics <small class="text-muted">-<%= Comic.sort(params[:sort]).count %>-</small></h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <% if user_signed_in? %>
         <%= render 'login_index' , comics: @comics, all_tags: @all_tags %>

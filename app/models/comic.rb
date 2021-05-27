@@ -24,6 +24,10 @@ class Comic < ApplicationRecord
       all.order(evaluation: :DESC)
     when 'lowrate'
       all.order(evaluation: :ASC)
+    when 'complete'
+      Comic.where(complete: true)
+    when 'still'
+      Comic.where(complete: false)
     end
   end
 
