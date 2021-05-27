@@ -10,5 +10,4 @@ class User < ApplicationRecord
   # keepsを経由してcomicから情報をとってくる
 
   validates :name, presence: true
-
 end
