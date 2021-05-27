@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:update,:destroy,:keeps]
+  before_action :ensure_correct_user, only: %i[update destroy keeps]
 
   def show
     @user = User.find(params[:id])
-    @comics = @user.comics.page(params[:page]).order("updated_at DESC")
+    @comics = @user.comics.page(params[:page]).order('updated_at DESC')
     @all_tags = ActsAsTaggableOn::Tag.all.most_used(20)
     @tags = @comics.tag_counts_on(:tags)
   end
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user.id), notice:"ユーザ情報を更新しました"
+      redirect_to user_path(@user.id), notice: 'ユーザ情報を更新しました'
     else
       @comics = @user.comics.page(params[:page])
       render :show
@@ -31,14 +31,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name, :email)
   end
 
   def ensure_correct_user
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(@user.id)
-    end
+    redirect_to user_path(@user.id) unless @user == current_user
   end
-
 end

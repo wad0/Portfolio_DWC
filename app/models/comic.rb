@@ -1,5 +1,4 @@
 class Comic < ApplicationRecord
-
   belongs_to :user
   has_many :keeps, dependent: :destroy
 
@@ -18,13 +17,13 @@ class Comic < ApplicationRecord
   def self.sort(sort)
     case sort
     when 'new'
-      return all.order(created_at: :DESC)
+      all.order(created_at: :DESC)
     when 'old'
-      return all.order(created_at: :ASC)
+      all.order(created_at: :ASC)
     when 'rate'
-      return all.order(evaluation: :DESC)
+      all.order(evaluation: :DESC)
     when 'lowrate'
-      return all.order(evaluation: :ASC)
+      all.order(evaluation: :ASC)
     end
   end
 
@@ -32,5 +31,4 @@ class Comic < ApplicationRecord
   validates :evaluation, presence: true
 
   acts_as_taggable
-
 end

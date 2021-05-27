@@ -1,5 +1,4 @@
 class KeepsController < ApplicationController
-
   def create
     # @keep = current_user.keeps.new(comic_id: params[:comic_id])
     # @keep.save
@@ -19,5 +18,4 @@ class KeepsController < ApplicationController
     keep = @comic.keeps.find_by(user_id: current_user.id)
     keep.destroy
   end
-
 end
