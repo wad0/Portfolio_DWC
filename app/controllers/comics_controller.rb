@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :search, :sort]
+  before_action :ensure_currect_user, only: [:edit, :update, :destroy]
 
   def new
     @comic = Comic.new
@@ -64,7 +64,7 @@ class ComicsController < ApplicationController
     params.require(:comic).permit(:title,:memo,:complete,:evaluation, tag_list: [])
   end
 
-  def ensure_correct_user
+  def ensure_currect_user
     @comic = Comic.find(params[:id])
     unless @comic.user == current_user
       redirect_to comics_path
