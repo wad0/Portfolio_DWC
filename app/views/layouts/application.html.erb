@@ -60,7 +60,9 @@
             <%= f.select :sort,[["投稿が新しい順","new"],
                                 ["投稿が古い順","old"],
                                 ["評価が高い順","rate"],
-                                ["評価が低い順","lowrate"]],{},
+                                ["評価が低い順","lowrate"],
+                                ["完結済み","complete"],
+                                ["未完結","still"]],{},
                                 class:"form-control" %>
             <%= button_tag type:'submit', class:"btn btn-secondary" do %>
               <i class="fas fa-sort"></i>
