@@ -16,16 +16,20 @@ class Comic < ApplicationRecord
 
   def self.sort(sort)
     case sort
+    # 更新順
     when 'new'
       all.order(created_at: :DESC)
     when 'old'
       all.order(created_at: :ASC)
+    # お気に入り度順
     when 'rate'
       all.order(evaluation: :DESC)
     when 'lowrate'
       all.order(evaluation: :ASC)
+    # 完結
     when 'complete'
       Comic.where(complete: true).order('updated_at DESC')
+    # 未完結
     when 'still'
       Comic.where(complete: false).order('updated_at DESC')
     end
